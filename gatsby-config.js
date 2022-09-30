@@ -95,7 +95,11 @@ module.exports = {
                       title
                       date
 					  description
-					  image
+					  image {
+						childImageSharp {
+							gatsbyImageData(width: 640, placeholder: BLURRED)
+						}
+					}
                     }
                   }
                 }
