@@ -1,64 +1,47 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
+import * as React from 'react'
+import { Link, graphql } from 'gatsby'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Bio from '../components/bio'
+import Layout from '../components/layout'
+import Seo from '../components/seo'
+import PostCard from '../components/post-card'
+import { Box, Center, Grid } from '@chakra-ui/react'
+import { FeaturedPostCard } from '../components/featured-post-card'
 
 const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+	const siteTitle = data.site.siteMetadata?.title || `Title`
+	const posts = data.allMarkdownRemark.nodes
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
+	if (posts.length === 0) {
+		return (
+			<Layout location={location} title={siteTitle}>
+				<Bio />
+				<p>
+					No blog posts found. Add markdown posts to "content/blog" (or the directory you specified
+					for the "gatsby-source-filesystem" plugin in gatsby-config.js).
+				</p>
+			</Layout>
+		)
+	}
 
-  return (
-    <Layout location={location} title={siteTitle}>
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
+	console.log('posts', posts)
 
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
-    </Layout>
-  )
+	return (
+		<Layout location={location} title={siteTitle}>
+			{/* <Bio /> */}
+
+			<Center className='featured-wrap' mb='4rem'>
+				<FeaturedPostCard post={[...posts].shift()} />
+			</Center>
+			<Grid templateColumns='repeat(3, 1fr)' gap={6}>
+				{[...posts].slice(1).map((post) => {
+					const title = post.frontmatter.title || post.fields.slug
+
+					return <PostCard key={post.id} post={post} />
+				})}
+			</Grid>
+		</Layout>
+	)
 }
 
 export default BlogIndex
@@ -68,27 +51,33 @@ export default BlogIndex
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="All posts" />
+export const Head = () => <Seo title='All posts' />
 
 export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-        }
-      }
-    }
-  }
+	query {
+		site {
+			siteMetadata {
+				title
+			}
+		}
+		allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+			nodes {
+				id
+				excerpt
+				fields {
+					slug
+				}
+				frontmatter {
+					date(formatString: "MMMM DD, YYYY")
+					title
+					description
+					image {
+						childImageSharp {
+							gatsbyImageData(width: 640, placeholder: BLURRED)
+						}
+					}
+				}
+			}
+		}
+	}
 `
