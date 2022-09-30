@@ -15,12 +15,21 @@ module.exports = {
 		`gatsby-plugin-image`,
 		`gatsby-plugin-netlify-cms`,
 		{
+			// keep as first gatsby-source-filesystem plugin for gatsby image support
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				path: `${__dirname}/static/img`,
+				name: 'uploads',
+			},
+		},
+		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
-				path: `${__dirname}/content/blog`,
+				path: `${__dirname}/blog`,
 				name: `blog`,
 			},
 		},
+
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
@@ -32,16 +41,23 @@ module.exports = {
 			resolve: `gatsby-transformer-remark`,
 			options: {
 				plugins: [
+					'gatsby-remark-relative-images',
 					{
 						resolve: `gatsby-remark-images`,
 						options: {
-							maxWidth: 630,
+							maxWidth: 640,
 						},
 					},
 					{
 						resolve: `gatsby-remark-responsive-iframe`,
 						options: {
 							wrapperStyle: `margin-bottom: 1.0725rem`,
+						},
+					},
+					{
+						resolve: 'gatsby-remark-copy-linked-files',
+						options: {
+							destinationDir: 'static',
 						},
 					},
 					`gatsby-remark-prismjs`,

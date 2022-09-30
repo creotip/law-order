@@ -3,8 +3,9 @@ backend:
   repo: creotip/law-order
   branch: main
 
-media_folder: static/assets
-public_folder: /assets
+local_backend: true
+media_folder: static/img
+public_folder: /img
 
 collections:
   - name: blog
@@ -15,5 +16,6 @@ collections:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
+      - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
       - { name: image, label: Image, widget: image }

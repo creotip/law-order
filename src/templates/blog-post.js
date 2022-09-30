@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import Bio from '../components/bio'
 import Layout from '../components/layout'
@@ -78,11 +77,6 @@ export const pageQuery = graphql`
 				title
 				date(formatString: "MMMM DD, YYYY")
 				description
-				image {
-					childImageSharp {
-						gatsbyImageData(width: 640, placeholder: BLURRED)
-					}
-				}
 			}
 		}
 		previous: markdownRemark(id: { eq: $previousPostId }) {
