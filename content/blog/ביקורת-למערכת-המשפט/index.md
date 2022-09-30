@@ -1,5 +1,5 @@
 ---
-title: ביקורת למערכת המשפט
+title ביקורת למערכת המשפט:
 date: '2015-05-06T23:46:37.121Z'
 description: 'Hello World'
 image: ./111.jpg
