@@ -23,5 +23,8 @@ collections:
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
       - { name: description, label: Description }
-      - { name: body, label: Body, widget: markdown }
       - { name: image, label: Image, widget: image }
+      - { name: tags, label: Tags, widget: list}
+      - { name: category, label: Category, widget: select, options: ["פרקליטות", "משטרה", "בגץ"] }
+      - { name: body, label: Body, widget: markdown }
+
