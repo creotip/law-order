@@ -5,7 +5,7 @@ module.exports = {
 			name: `אנונימוס`,
 			summary: `who lives and works in San Francisco building useful things.`,
 		},
-		description: `A starter blog demonstrating what Gatsby can do.`,
+		description: `האתר שחושף את השחיתות במערכות שלטון החוק`,
 		siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
 		social: {
 			twitter: `kylemathews`,
