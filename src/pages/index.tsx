@@ -23,8 +23,6 @@ const BlogIndex = ({ data, location }) => {
 		)
 	}
 
-	console.log('posts', posts)
-
 	return (
 		<Layout location={location} title={siteTitle}>
 			{/* <Bio /> */}
@@ -50,7 +48,7 @@ export default BlogIndex
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title='All posts' />
+export const Head = () => <Seo title='האתר שחושף את השחיתות במערכות שלטון החוק' />
 
 export const pageQuery = graphql`
 	query {
