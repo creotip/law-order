@@ -6,6 +6,7 @@ import Seo from '../components/seo'
 import PostCard from '../components/post-card'
 import { Center, Grid } from '@chakra-ui/react'
 import { FeaturedPostCard } from '../components/featured-post-card'
+import { PostsList } from '../components/posts-list'
 
 const BlogIndex = ({ data, location }) => {
 	const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -30,13 +31,15 @@ const BlogIndex = ({ data, location }) => {
 			<Center className='featured-wrap' mb='4rem'>
 				<FeaturedPostCard post={[...posts].shift()} />
 			</Center>
-			<Grid templateColumns={['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} gap={6}>
-				{[...posts].slice(1).map((post) => {
-					const title = post.frontmatter.title || post.fields.slug
+			{/*<Grid templateColumns={['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} gap={6}>*/}
+			{/*	{[...posts].slice(1).map((post) => {*/}
+			{/*		const title = post.frontmatter.title || post.fields.slug*/}
 
-					return <PostCard key={post.id} post={post} />
-				})}
-			</Grid>
+			{/*		return <PostCard key={post.id} post={post} />*/}
+			{/*	})}*/}
+			{/*</Grid>*/}
+
+			<PostsList />
 		</Layout>
 	)
 }
