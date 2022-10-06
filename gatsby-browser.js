@@ -1,5 +1,6 @@
 import * as React from 'react'
 import '@fontsource/heebo/400.css'
+import '@fontsource/heebo/600.css'
 import '@fontsource/heebo/800.css'
 // normalize CSS across browsers
 // import './src/normalize.css'

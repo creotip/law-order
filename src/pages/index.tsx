@@ -32,7 +32,7 @@ const BlogIndex = ({ data, location }) => {
 			<Center className='featured-wrap' mb='4rem'>
 				<FeaturedPostCard post={[...posts].shift()} />
 			</Center>
-			<Grid templateColumns='repeat(3, 1fr)' gap={6}>
+			<Grid templateColumns={['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} gap={6}>
 				{[...posts].slice(1).map((post) => {
 					const title = post.frontmatter.title || post.fields.slug
 

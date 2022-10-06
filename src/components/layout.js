@@ -25,7 +25,9 @@ const Layout = ({ location, title, children }) => {
 					</Box>
 				</Center>
 			</Box>
-			<main>{children}</main>
+			<Box as='main' px={3}>
+				{children}
+			</Box>
 			<Box as='footer' textAlign='center' my={6}>
 				© {new Date().getFullYear()},{` `}
 				<a href='https://www.gatsbyjs.com'>מערכת המשפח</a>

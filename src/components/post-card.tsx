@@ -14,7 +14,7 @@ const PostCard = ({ post }) => {
 					<Box as={GatsbyImage} image={img} alt={post.frontmatter.title} mb={2} borderRadius='md' />
 				)}
 				<header>
-					<Heading as='h2' fontWeight='800' fontSize='2xl' noOfLines={3}>
+					<Heading as='h2' fontWeight='600' fontSize={['1xl', '1xl', '2xl']} noOfLines={3}>
 						<Link to={post.fields.slug} itemProp='url'>
 							<span itemProp='headline'>{post.frontmatter.title}</span>
 						</Link>
