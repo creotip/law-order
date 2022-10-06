@@ -73,7 +73,7 @@ export const pageQuery = graphql`
 					description
 					image {
 						childImageSharp {
-							gatsbyImageData(width: 640, placeholder: BLURRED)
+							gatsbyImageData(width: 640, placeholder: DOMINANT_COLOR)
 						}
 					}
 				}
