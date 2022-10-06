@@ -1,11 +1,10 @@
 import * as React from 'react'
-import { Link, graphql } from 'gatsby'
-
+import { graphql } from 'gatsby'
 import Bio from '../components/bio'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import PostCard from '../components/post-card'
-import { Box, Center, Grid } from '@chakra-ui/react'
+import { Center, Grid } from '@chakra-ui/react'
 import { FeaturedPostCard } from '../components/featured-post-card'
 
 const BlogIndex = ({ data, location }) => {

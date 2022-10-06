@@ -4,23 +4,37 @@ import { Link, graphql } from 'gatsby'
 import Bio from '../components/bio'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
+import { Box, Divider, Heading } from '@chakra-ui/react'
 
 const BlogPostTemplate = ({ data: { previous, next, site, markdownRemark: post }, location }) => {
 	const siteTitle = site.siteMetadata?.title || `Title`
 
 	return (
 		<Layout location={location} title={siteTitle}>
-			<article className='blog-post' itemScope itemType='http://schema.org/Article'>
+			<Box
+				as='article'
+				maxW='800px'
+				mx='auto'
+				className='blog-post'
+				itemScope
+				itemType='https://schema.org/Article'
+			>
 				<header>
-					<h1 itemProp='headline'>{post.frontmatter.title}</h1>
-					<p>{post.frontmatter.date}</p>
+					<Heading as='h1' itemProp='headline' textAlign='center' mb={2}>
+						{post.frontmatter.title}
+					</Heading>
+					<Box textAlign='center' mb={4}>
+						{post.frontmatter.date} | המערכת
+					</Box>
 				</header>
-				<section dangerouslySetInnerHTML={{ __html: post.html }} itemProp='articleBody' />
-				<hr />
-				<footer>
-					<Bio />
-				</footer>
-			</article>
+				<Box
+					as='section'
+					mb={6}
+					dangerouslySetInnerHTML={{ __html: post.html }}
+					itemProp='articleBody'
+				/>
+				<Divider />
+			</Box>
 			<nav className='blog-post-nav'>
 				<ul
 					style={{
