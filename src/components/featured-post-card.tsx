@@ -11,7 +11,14 @@ export const FeaturedPostCard = ({ post }) => {
 		<Box key={post.id} mb={5} maxW='640px'>
 			<article className='post-list-item' itemScope itemType='https://schema.org/Article'>
 				{img && (
-					<Box as={GatsbyImage} image={img} alt={post.frontmatter.title} mb={4} borderRadius='md' />
+					<Box
+						as={GatsbyImage}
+						image={img}
+						alt={post.frontmatter.title}
+						mb={4}
+						borderRadius='md'
+						isolation='isolate'
+					/>
 				)}
 
 				<Box as='header' mb={4}>

@@ -11,7 +11,14 @@ const PostCard = ({ post }) => {
 		<Box key={post.id} mb={5}>
 			<article className='post-list-item' itemScope itemType='https://schema.org/Article'>
 				{img && (
-					<Box as={GatsbyImage} image={img} alt={post.frontmatter.title} mb={2} borderRadius='md' />
+					<Box
+						as={GatsbyImage}
+						image={img}
+						alt={post.frontmatter.title}
+						mb={2}
+						borderRadius='md'
+						isolation='isolate'
+					/>
 				)}
 				<header>
 					<Heading as='h2' fontWeight='600' fontSize={['1xl', '1xl', '2xl']} noOfLines={3}>
