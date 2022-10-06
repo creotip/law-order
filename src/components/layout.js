@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import { Box, Center } from '@chakra-ui/react'
+import { Box, Center, Icon } from '@chakra-ui/react'
 import { GiScales } from 'react-icons/gi'
 
 const Layout = ({ location, title, children }) => {
@@ -10,17 +10,9 @@ const Layout = ({ location, title, children }) => {
 	return (
 		<Box className='global-wrapper' data-is-root-path={isRootPath} maxW='1000px' mx='auto'>
 			<Box as='header' className='global-header' textAlign='center'>
-				<Center flexDir='column' mt='4' mb='4rem' fontSize='2xl'>
-					<GiScales size={90} color='#ff7675' />
-					<Box
-						as={Link}
-						to='/'
-						display='inline-flex'
-						// border='1px dashed'
-						// px='20px'
-						// py='10px'
-						fontWeight='800'
-					>
+				<Center flexDir='column' mt='4' mb={['4', '4rem']} fontSize='2xl'>
+					<Icon as={GiScales} w={['50px', '80px']} h={['50px', '80px']} color='#ff7675' />
+					<Box as={Link} to='/' display='inline-flex' fontWeight='800' fontSize={['lg', '2xl']}>
 						{title}
 					</Box>
 				</Center>
