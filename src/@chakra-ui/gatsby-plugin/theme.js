@@ -1,6 +1,13 @@
 import { extendTheme } from '@chakra-ui/react'
 
 const theme = {
+	styles: {
+		global: {
+			p: {
+				marginTop: '1rem',
+			},
+		},
+	},
 	config: {
 		initialColorMode: 'light',
 	},

@@ -1,10 +1,12 @@
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
+import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
 
 import Bio from '../components/bio'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import { Box, Divider, Heading } from '@chakra-ui/react'
+import ReactMarkdown from 'react-markdown'
 
 const BlogPostTemplate = ({ data: { previous, next, site, markdownRemark: post }, location }) => {
 	const siteTitle = site.siteMetadata?.title || `Title`
@@ -33,6 +35,7 @@ const BlogPostTemplate = ({ data: { previous, next, site, markdownRemark: post }
 					dangerouslySetInnerHTML={{ __html: post.html }}
 					itemProp='articleBody'
 				/>
+
 				<Divider />
 			</Box>
 			<nav className='blog-post-nav'>

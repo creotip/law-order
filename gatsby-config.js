@@ -14,6 +14,7 @@ module.exports = {
 	plugins: [
 		`gatsby-plugin-image`,
 		`gatsby-plugin-netlify-cms`,
+		`gatsby-plugin-twitter`,
 		{
 			// keep as first gatsby-source-filesystem plugin for gatsby image support
 			resolve: 'gatsby-source-filesystem',
